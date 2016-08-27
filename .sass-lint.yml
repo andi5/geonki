@@ -1,0 +1,38 @@
+#########################
+# see https://github.com/sasstools/sass-lint/blob/develop/docs/sass-lint.yml
+# see https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml
+#########################
+# Linter Options
+options:
+  # Don't merge default rules
+  merge-default-rules: false
+  formatter: stylish
+
+# File Options
+files:
+  include: '**/app/main/**/*.s+(a|c)ss'
+  ignore:
+    - '**/node_modules/**/*.*'
+    - '**/bootstrap/journal/*.scss'
+
+# Rule Configuration
+rules:
+  no-ids: 2
+  no-important: 2
+  hex-notation:
+    - 2
+    -
+      style: lowercase
+  indentation:
+    - 2
+    -
+      size: 2
+
+  # wrong: 0px | correct: 0
+  zero-unit: 2
+
+  final-newline: 2
+  empty-line-between-blocks: 2
+  no-color-keywords: 2
+  no-color-literals: 2
+  no-empty-rulesets: 2

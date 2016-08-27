@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./assets/gen/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react"
+  },
+  "files": [
+    "./typings/index.d.ts",
+    "./app/main/geonki/home/HomePage.tsx",
+    "./app/main/geonki/main.tsx"
+  ]
+}
