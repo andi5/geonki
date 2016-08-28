@@ -6,3 +6,9 @@ const namespace = 'home';
 
 export const SET_BOUNDING_BOX = `${namespace}/SET_BOUNDING_BOX`;
 export const setBoundingBox = createAction<IBoundingBox>(SET_BOUNDING_BOX);
+
+export interface ISetLabelsVisible {
+  visible: boolean;
+}
+export const SET_LABELS_VISIBLE = `${namespace}/SET_LABELS_VISIBLE`;
+export const setLabelsVisible = createAction<ISetLabelsVisible>(SET_LABELS_VISIBLE);

@@ -15,6 +15,7 @@
     "./app/main/geonki/reducers.ts",
     "./app/main/geonki/routes.tsx",
     "./app/main/geonki/home/HomePage.tsx",
+    "./app/main/geonki/home/Map.tsx",
     "./app/main/geonki/home/actions.ts",
     "./app/main/geonki/home/actionTypes.ts",
     "./app/main/geonki/home/models.ts",
