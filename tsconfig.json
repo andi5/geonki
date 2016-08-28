@@ -9,7 +9,13 @@
   },
   "files": [
     "./typings/index.d.ts",
+    "./app/main/geonki/actionHelper.ts",
+    "./app/main/geonki/main.tsx",
+    "./app/main/geonki/reducers.ts",
+    "./app/main/geonki/routes.tsx",
     "./app/main/geonki/home/HomePage.tsx",
-    "./app/main/geonki/main.tsx"
+    "./app/main/geonki/home/actions.ts",
+    "./app/main/geonki/home/actionTypes.ts",
+    "./app/main/geonki/home/reducers.ts"
   ]
 }

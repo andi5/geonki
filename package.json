@@ -12,13 +12,21 @@
     "lint": "tslint -c ./tslint.json app/**/*.ts app/**/*.tsx",
     "lint-sass": "sass-lint --config ./.sass-lint.yml --verbose",
     "dev": "webpack-dev-server",
-    "typings": "typings"
+    "typings": "typings",
+    "prod": "NODE_ENV=prod webpack"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "jquery": "^3.1.0",
+    "lodash": "^4.15.0",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.7.0",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-actions": "^0.11.0",
+    "redux-effects": "^0.4.3"
   },
   "devDependencies": {
     "babel-polyfill": "^6.13.0",

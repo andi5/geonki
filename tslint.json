@@ -1,6 +1,7 @@
 {
   "extends": ["tslint:recommended", "tslint-react"],
   "rules": {
+    "trailing-comma": [true, {"singleline": "never", "multiline": "never"}],
     "quotemark": [true, "single", "jsx-double"]
   }
 }
