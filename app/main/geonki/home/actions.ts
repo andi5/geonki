@@ -1,1 +1,1 @@
-export {setBoundingBox, setLabelsVisible} from './actionTypes';
+export {setBoundingBox, setLabelsVisible, setMapFixed} from './actionTypes';

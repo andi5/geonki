@@ -9,6 +9,7 @@ const {cssPrefix} = getNamespaces(['Map']);
 
 interface IMapProps {
   withLabels: boolean;
+  fixed: boolean;
   setBoundingBox(boundingBox: IBoundingBox): void;
 }
 
@@ -22,6 +23,7 @@ export default class Map extends React.Component<IMapProps, {}> {
     this.mapNode = node;
   };
 
+  private map: ol.Map;
   private layerWithoutLabels: ol.layer.Layer;
   private layerWithLabels: ol.layer.Layer;
 
@@ -46,22 +48,31 @@ export default class Map extends React.Component<IMapProps, {}> {
       })
     });
 
-    const map = new ol.Map({
+    this.map = new ol.Map({
       target: this.mapNode,
       layers: [this.layerWithoutLabels, this.layerWithLabels],
       view: new ol.View({
         center: ol.proj.fromLonLat([11.0668, 49.4449], webMercator),
         zoom: 11
-      })
+      }),
+      controls: [new ol.control.Attribution()]
     });
 
-    map.on('moveend', this.onMoveEnd);
+    this.map.on('moveend', this.onMoveEnd);
   };
 
   public componentWillReceiveProps = (nextProps: IMapProps): void => {
     if (this.props.withLabels !== nextProps.withLabels) {
       this.layerWithoutLabels.setVisible(!nextProps.withLabels);
       this.layerWithLabels.setVisible(nextProps.withLabels);
+    }
+
+    if (this.props.fixed !== nextProps.fixed) {
+      if (nextProps.fixed) {
+        this.map.getInteractions().clear();
+      } else {
+        this.map.getInteractions().extend(ol.interaction.defaults({}).getArray());
+      }
     }
   };
 

@@ -12,3 +12,9 @@ export interface ISetLabelsVisible {
 }
 export const SET_LABELS_VISIBLE = `${namespace}/SET_LABELS_VISIBLE`;
 export const setLabelsVisible = createAction<ISetLabelsVisible>(SET_LABELS_VISIBLE);
+
+export interface ISetMapFixed {
+  fixed: boolean;
+}
+export const SET_MAP_FIXED = `${namespace}/SET_MAP_FIXED`;
+export const setMapFixed = createAction<ISetMapFixed>(SET_MAP_FIXED);

@@ -9,12 +9,14 @@ import {IBoundingBox} from './models';
 import Map from './Map';
 
 import './homePage.scss';
+import {setMapFixed} from './actionTypes';
 
 const {cssPrefix} = getNamespaces(['HomePage']);
 
 interface IHomePageStateProps {
   boundingBox: IBoundingBox;
   labelsVisible: boolean;
+  mapFixed: boolean;
 }
 
 interface IHomePageProps extends IHomePageStateProps, IDispatchProps {}
@@ -26,14 +28,14 @@ class HomePage extends React.Component<IHomePageProps, {}> {
   };
 
   public render() {
-    const {boundingBox, labelsVisible} = this.props;
+    const {boundingBox, labelsVisible, mapFixed} = this.props;
 
     return (
       <div>
         <h1>Welcome to Geonki!</h1>
         <div>
           <div className={`${cssPrefix}-map`}>
-            <Map withLabels={labelsVisible} setBoundingBox={this.setBoundingBoxBound} />
+            <Map withLabels={labelsVisible} setBoundingBox={this.setBoundingBoxBound} fixed={mapFixed} />
           </div>
           <p>
             <label>
@@ -44,6 +46,10 @@ class HomePage extends React.Component<IHomePageProps, {}> {
           <p>
             {boundingBox.south},{boundingBox.west},{boundingBox.north},{boundingBox.east}
           </p>
+          <p>
+            {!mapFixed && <input type="button" value="Fix map!" onClick={this.fixMap} />}
+            {mapFixed && <span>Fixed</span>}
+          </p>
         </div>
       </div>
     );
@@ -51,14 +57,19 @@ class HomePage extends React.Component<IHomePageProps, {}> {
 
   private onLabelsVisibleChange = (): void => {
     this.props.dispatch(setLabelsVisible({visible: !this.props.labelsVisible}));
-  }
+  };
+
+  private fixMap = (): void => {
+    this.props.dispatch(setMapFixed({fixed: true}));
+  };
 }
 
 const mapStateToProps = (state: IRootState): IHomePageStateProps => {
   const homeState = state.geonki.home;
   return {
     boundingBox: homeState.boundingBox,
-    labelsVisible: homeState.labelsVisible
+    labelsVisible: homeState.labelsVisible,
+    mapFixed: homeState.mapFixed
   };
 };
 
