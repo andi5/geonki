@@ -9,9 +9,7 @@ interface IActionCreator<Payload> {
   (payload: Payload): Action<Payload>;
 }
 
-export function createAction<Payload>(type: string): IActionCreator<Payload> {
-  return (payload: Payload) => ({
-    type,
-    payload
-  });
-}
+export const createAction = <Payload>(type: string): IActionCreator<Payload> => (payload) => ({
+  type,
+  payload
+});

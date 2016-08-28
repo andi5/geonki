@@ -1,7 +1,9 @@
 {
   "extends": ["tslint:recommended", "tslint-react"],
   "rules": {
-    "trailing-comma": [true, {"singleline": "never", "multiline": "never"}],
-    "quotemark": [true, "single", "jsx-double"]
+    "member-ordering": false,
+    "object-literal-sort-keys": false,
+    "quotemark": [true, "single", "jsx-double"],
+    "trailing-comma": [true, {"singleline": "never", "multiline": "never"}]
   }
 }

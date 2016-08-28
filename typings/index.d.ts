@@ -1,5 +1,6 @@
 /// <reference path="globals/lodash/index.d.ts" />
 /// <reference path="globals/node/index.d.ts" />
+/// <reference path="globals/openlayers/index.d.ts" />
 /// <reference path="globals/react-dom/index.d.ts" />
 /// <reference path="globals/react-redux/index.d.ts" />
 /// <reference path="globals/react-router-redux/index.d.ts" />

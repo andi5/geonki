@@ -1,1 +1,1 @@
-export {increaseX, increaseY} from './actionTypes';
+export {setBoundingBox} from './actionTypes';
