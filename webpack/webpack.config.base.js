@@ -6,7 +6,7 @@ export default new Config().merge({
   entry: ['babel-polyfill', 'bootstrap-loader', './app/main/geonki/main.tsx'],
   output: {
     path: path.resolve(__dirname, '../assets/gen'),
-    publicPath: '/assets/gen/',
+    publicPath: '/gen/',
     filename: 'bundle.js'
   },
   module: {

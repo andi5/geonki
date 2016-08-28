@@ -1,7 +1,11 @@
 import * as React from 'react';
-import * as ol from 'openlayers';
 
 import {IBoundingBox} from './models';
+import {getNamespaces} from './namespaces';
+
+import './map.scss';
+
+const {cssPrefix} = getNamespaces(['Map']);
 
 interface IMapProps {
   withLabels: boolean;
@@ -76,6 +80,6 @@ export default class Map extends React.Component<IMapProps, {}> {
   };
 
   public render() {
-    return <div ref={this.setMap} />;
+    return <div ref={this.setMap} className={cssPrefix} />;
   }
 }
