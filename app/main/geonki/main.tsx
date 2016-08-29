@@ -4,6 +4,7 @@ import {Router, browserHistory} from 'react-router';
 import {applyMiddleware, compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {syncHistoryWithStore} from 'react-router-redux';
+import effects from 'redux-effects';
 import {get, identity} from 'lodash';
 
 import {rootReducer} from './reducers';
@@ -14,6 +15,7 @@ const initialState = get(window, '__INITIAL_STATE__');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const middlewares = applyMiddleware(
+  effects
 );
 
 const devToolsExtension = get(window, 'devToolsExtension') as (p?: any) => any;

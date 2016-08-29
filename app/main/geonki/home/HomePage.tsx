@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 
-import {setBoundingBox, setLabelsVisible} from './actions';
+import {setBoundingBox, setLabelsVisible, getPlaces} from './actions';
 import {IDispatchProps} from '../actionHelper';
 import {IRootState} from '../reducers';
 import {getNamespaces} from './namespaces';
@@ -61,6 +61,7 @@ class HomePage extends React.Component<IHomePageProps, {}> {
 
   private fixMap = (): void => {
     this.props.dispatch(setMapFixed({fixed: true}));
+    this.props.dispatch(getPlaces(this.props.boundingBox))
   };
 }
 

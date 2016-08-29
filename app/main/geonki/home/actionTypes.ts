@@ -18,3 +18,6 @@ export interface ISetMapFixed {
 }
 export const SET_MAP_FIXED = `${namespace}/SET_MAP_FIXED`;
 export const setMapFixed = createAction<ISetMapFixed>(SET_MAP_FIXED);
+
+export const GET_PLACES_START = `${namespace}/GET_PLACES_START`;
+export const getPlacesStart = createAction<{}>(GET_PLACES_START);

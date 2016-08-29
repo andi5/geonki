@@ -8,4 +8,5 @@
 /// <reference path="globals/react-router/index.d.ts" />
 /// <reference path="globals/react/index.d.ts" />
 /// <reference path="globals/redux-actions/index.d.ts" />
+/// <reference path="globals/redux-effects/index.d.ts" />
 /// <reference path="globals/redux/index.d.ts" />

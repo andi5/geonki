@@ -1,0 +1,7 @@
+{
+  "name": "Custom typings",
+  "version": false,
+  "globalDependencies": {
+    "redux-effects": "file:typings/custom/redux-effects.d.ts"
+  }
+}
