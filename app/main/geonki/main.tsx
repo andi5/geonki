@@ -5,6 +5,7 @@ import {applyMiddleware, compose, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {syncHistoryWithStore} from 'react-router-redux';
 import effects from 'redux-effects';
+import fetch, {fetchEncodeJSON} from 'redux-effects-fetch';
 import {get, identity} from 'lodash';
 
 import {rootReducer} from './reducers';
@@ -15,7 +16,9 @@ const initialState = get(window, '__INITIAL_STATE__');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const middlewares = applyMiddleware(
-  effects
+  effects,
+  fetch,
+  fetchEncodeJSON
 );
 
 const devToolsExtension = get(window, 'devToolsExtension') as (p?: any) => any;

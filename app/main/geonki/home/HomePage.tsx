@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import {isNil} from 'lodash';
 
 import {setBoundingBox, setLabelsVisible, getPlaces} from './actions';
 import {IDispatchProps} from '../actionHelper';
 import {IRootState} from '../reducers';
 import {getNamespaces} from './namespaces';
-import {IBoundingBox} from './models';
+import {IBoundingBox, INode} from './models';
 import Map from './Map';
 
 import './homePage.scss';
@@ -17,6 +18,7 @@ interface IHomePageStateProps {
   boundingBox: IBoundingBox;
   labelsVisible: boolean;
   mapFixed: boolean;
+  places?: INode[];
 }
 
 interface IHomePageProps extends IHomePageStateProps, IDispatchProps {}
@@ -28,7 +30,7 @@ class HomePage extends React.Component<IHomePageProps, {}> {
   };
 
   public render() {
-    const {boundingBox, labelsVisible, mapFixed} = this.props;
+    const {boundingBox, labelsVisible, mapFixed, places} = this.props;
 
     return (
       <div>
@@ -50,6 +52,11 @@ class HomePage extends React.Component<IHomePageProps, {}> {
             {!mapFixed && <input type="button" value="Fix map!" onClick={this.fixMap} />}
             {mapFixed && <span>Fixed</span>}
           </p>
+          {!isNil(places) && (
+            <ul>
+              {places.map((place: INode, idx: number) => <li key={idx}>{place.tags.name}</li>)}
+            </ul>
+          )}
         </div>
       </div>
     );
@@ -61,7 +68,7 @@ class HomePage extends React.Component<IHomePageProps, {}> {
 
   private fixMap = (): void => {
     this.props.dispatch(setMapFixed({fixed: true}));
-    this.props.dispatch(getPlaces(this.props.boundingBox))
+    this.props.dispatch(getPlaces(this.props.boundingBox));
   };
 }
 
@@ -70,7 +77,8 @@ const mapStateToProps = (state: IRootState): IHomePageStateProps => {
   return {
     boundingBox: homeState.boundingBox,
     labelsVisible: homeState.labelsVisible,
-    mapFixed: homeState.mapFixed
+    mapFixed: homeState.mapFixed,
+    places: homeState.places
   };
 };
 

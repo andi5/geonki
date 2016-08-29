@@ -5,12 +5,14 @@ import {extend} from 'lodash';
 import {SET_BOUNDING_BOX} from './actionTypes';
 import {SET_LABELS_VISIBLE, ISetLabelsVisible} from './actionTypes';
 import {SET_MAP_FIXED, ISetMapFixed} from './actionTypes';
-import {IBoundingBox} from './models';
+import {GET_PLACES_SUCCESS} from './actionTypes';
+import {IBoundingBox, INode, IOverpassResponse} from './models';
 
 export interface IHomeState {
   boundingBox: IBoundingBox;
   labelsVisible: boolean;
   mapFixed: boolean;
+  places?: INode[];
 }
 
 const initialState: IHomeState = {
@@ -21,7 +23,8 @@ const initialState: IHomeState = {
     east: 0
   },
   labelsVisible: true,
-  mapFixed: false
+  mapFixed: false,
+  places: null
 };
 
 export const homeReducer: Reducer<IHomeState> = handleActions<IHomeState, any>({
@@ -41,6 +44,12 @@ export const homeReducer: Reducer<IHomeState> = handleActions<IHomeState, any>({
     const payload = action.payload as ISetMapFixed;
     return extend({}, state, {
       mapFixed: payload.fixed
+    });
+  },
+  [GET_PLACES_SUCCESS]: (state: IHomeState, action: Action<any>) => {
+    const payload = action.payload as IOverpassResponse;
+    return extend({}, state, {
+      places: payload.elements
     });
   }
 }, initialState);

@@ -1826,7 +1826,7 @@ declare namespace ol {
 
         /**
          * Remove the given overlay from the map.
-         * @param overlay OverlMapBrowserPointerEventay.
+         * @param overlay Overlay.
          * @returns The removed overlay (or undefined if the overlay was not found).
          */
         removeOverlay(overlay: ol.Overlay): ol.Overlay;

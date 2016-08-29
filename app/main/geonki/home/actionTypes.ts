@@ -1,6 +1,6 @@
 import {createAction} from '../actionHelper';
 
-import {IBoundingBox} from './models';
+import {IBoundingBox, IOverpassResponse} from './models';
 
 const namespace = 'home';
 
@@ -20,4 +20,8 @@ export const SET_MAP_FIXED = `${namespace}/SET_MAP_FIXED`;
 export const setMapFixed = createAction<ISetMapFixed>(SET_MAP_FIXED);
 
 export const GET_PLACES_START = `${namespace}/GET_PLACES_START`;
+export const GET_PLACES_SUCCESS = `${namespace}/GET_PLACES_SUCCESS`;
+export const GET_PLACES_FAILURE = `${namespace}/GET_PLACES_FAILURE`;
 export const getPlacesStart = createAction<{}>(GET_PLACES_START);
+export const getPlacesSuccess = createAction<IOverpassResponse>(GET_PLACES_SUCCESS);
+export const getPlacesFailure = createAction<{}>(GET_PLACES_FAILURE);

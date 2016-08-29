@@ -1,6 +1,7 @@
 {
   "extends": ["tslint:recommended", "tslint-react"],
   "rules": {
+    "jsx-no-multiline-js": false,
     "member-ordering": false,
     "object-literal-sort-keys": false,
     "quotemark": [true, "single", "jsx-double"],

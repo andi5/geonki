@@ -1,4 +1,6 @@
 declare module 'redux-effects' {
-  // TODO
-  export default function effects(f: any): any;
+  import {Middleware} from 'redux';
+
+  const effects: Middleware;
+  export default effects;
 }
